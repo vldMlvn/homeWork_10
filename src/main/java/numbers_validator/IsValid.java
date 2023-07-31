@@ -1,17 +1,22 @@
-package Task_1;
+package numbers_validator;
 
-import java.util.Scanner;
-import java.io.FileNotFoundException;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-public class Task1 {
-    private static String reg = "^\\((\\d{3})\\)\\s*(\\d{3})-(\\d{4})$|^\\d{3}-\\d{3}-\\d{4}$";
+import java.util.Scanner;
+
+
+public class IsValid {
+    private static final String REG = "^\\((\\d{3})\\)\\s*(\\d{3})-(\\d{4})$|^\\d{3}-\\d{3}-\\d{4}$";
+
     private static boolean validator(String number) {
-        return number.matches(reg);
+        return number.matches(REG);
     }
+
     public static void main(String[] args) throws IOException {
-        File file = new File("File1.txt");
-        //Якщо коректно вказати шлях до файлу то все працює
+
+        File file = new File("src/main/java/numbers_validator/numbers.txt");
+
         try {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
